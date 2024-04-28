@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 [System.Serializable]
 
-public class Card : MonoBehaviour
+public class Card 
 {
     public string cardName;
     public string cardDescription;
-    public int cost;
-    public int power;
+    public int cardCost;
+    public int cardPower;
     public int id;
+    public Sprite cardImage;
 
     public Card()
     {
@@ -18,13 +19,14 @@ public class Card : MonoBehaviour
 
     }
 
-    public Card(string CardName, string CardDescription, int Cost, int Power, int Id)
+    public Card(string CardName, string CardDescription, int Cost, int Power, int ID, Sprite CardImage)
     {
         cardName = CardName;
         cardDescription = CardDescription;
-        cost = Cost;
-        power = Power;
-        id = Id;
+        cardCost = Cost;
+        cardPower = Power;
+        id = ID;
+        cardImage = CardImage;
 
 
 
