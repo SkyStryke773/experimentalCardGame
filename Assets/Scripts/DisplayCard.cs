@@ -22,10 +22,25 @@ public class DisplayCard : MonoBehaviour
     public Text powerText;
     public Image artImage;
 
+    public bool cardBack;
+    public static bool staticCardBack;
+
+    public GameObject hand;
+    public int numberOfCardsInDeck;
+
+
 
     void Start()
     {
+        numberOfCardsInDeck = PlayerDeck.deckSize;
+
         displayCard[0] = CardDatabase.cardList[displayID];
+
+    }
+
+    void Update()
+    {
+        
         cardName = displayCard[0].cardName;
         cardDescription = displayCard[0].cardDescription;
         cardCost = displayCard[0].cardCost;
@@ -40,14 +55,21 @@ public class DisplayCard : MonoBehaviour
         costText.text = "" + cardCost;
         powerText.text = "" + cardPower;
         artImage.sprite = cardImage;
-
-    }
-
-    void Update()
-    {
-        
+        hand = GameObject.Find("Hand");
+        if(this.transform.parent == hand.transform.parent)
+        {
+            cardBack = false;
+        }
+        staticCardBack = cardBack;
   
-
+        if(this.tag == "Clone")
+        {
+            displayCard[0] = PlayerDeck.staticDeck[numberOfCardsInDeck - 1];
+            numberOfCardsInDeck -= 1;
+            PlayerDeck.deckSize -= 1;
+            cardBack = false;
+            this.tag = "Untagged";
+        }
 
     }
 }
