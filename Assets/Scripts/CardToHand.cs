@@ -11,12 +11,6 @@ public class CardToHand : MonoBehaviour
 
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
         hand = GameObject.Find("Hand");
         handCard.transform.SetParent(hand.transform);
         handCard.transform.localScale = Vector3.one;
@@ -24,3 +18,5 @@ public class CardToHand : MonoBehaviour
         handCard.transform.eulerAngles = new Vector3(25, 0, 0);
     }
 }
+
+   

@@ -5,28 +5,23 @@ using UnityEngine.EventSystems;
 
 public class DropZone : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler
 {
-    public void onPointerEnter(PointerEventData eventData)
+   public void  OnPointerEnter(PointerEventData eventData)
     {
-
+        Debug.Log("on pointer enter ");
     }
-
-    public void onDrop(PointerEventData eventData)
+    public void OnPointerExit(PointerEventData eventData)
     {
-        debug.Log("dropped.................................................");
+        Debug.Log("on pointer exit ");
     }
-   
-    public void onPointerExit(PointerEventData eventData)
+    public void OnDrop(PointerEventData eventData)
     {
+        Debug.Log("on drop to" + gameObject.name);
 
+        Drag d = eventData.pointerDrag.GetComponent<Drag>();
+        if (d != null)
+        {
+            d.parentToReturnTo = this.transform;
+        }
     }
-
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
+     
 }
