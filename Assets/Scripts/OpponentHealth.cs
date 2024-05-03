@@ -16,7 +16,7 @@ public class OpponentHealth : MonoBehaviour
     void Start()
     {
         maxHp = 50;
-        staticHp = 30;
+        staticHp = 50;
     }
 
     void Update()

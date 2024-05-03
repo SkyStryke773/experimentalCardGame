@@ -14,7 +14,7 @@ public class PlayerHealthPoints : MonoBehaviour
     void Start()
     {
         maxHp = 50; 
-        staticHp = 45;
+        staticHp = 50;
     }
 
     void Update()
