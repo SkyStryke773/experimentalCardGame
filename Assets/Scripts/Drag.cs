@@ -64,7 +64,9 @@ public class Drag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
                 break;   
             }
         }
+        
         placeholder.transform.SetSiblingIndex(newSiblingIndex);
+        
     }
     public void OnEndDrag(PointerEventData eventData)
     {
