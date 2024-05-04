@@ -16,6 +16,8 @@ public class CardToHand : MonoBehaviour
         handCard.transform.localScale = Vector3.one;
         handCard.transform.position = new Vector3(transform.position.x, transform.position.y, -48);
         handCard.transform.eulerAngles = new Vector3(25, 0, 0);
+
+        
     }
 }
 

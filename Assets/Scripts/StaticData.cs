@@ -13,7 +13,7 @@ public class StaticData : MonoBehaviour
     void Start()
     {
         Debug.Log(AttackHand);
-
+        
     }
 
     

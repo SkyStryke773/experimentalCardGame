@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class AttackOrginizer : MonoBehaviour
@@ -12,6 +13,11 @@ public class AttackOrginizer : MonoBehaviour
     void Start()
     {
         
+        for (int i = 0; i <= (StaticData.AttackHand.Count)-1; i++)
+        {
+            Debug.Log(StaticData.AttackHand[i]);
+            Instantiate(StaticData.AttackHand[0], transform.position, transform.rotation);
+        }
     }
 
     // Update is called once per frame
@@ -19,13 +25,12 @@ public class AttackOrginizer : MonoBehaviour
     {
         
     }
-    IEnumerator StartGame()
+    public void GoToCardScreen()
     {
-        for (int i = 0; i <= 4; i++)
+        GameObject[] rootGameObjects = SceneManager.GetSceneByName("AttackPhase").GetRootGameObjects();
+        foreach (GameObject go in rootGameObjects)
         {
-            yield return new WaitForSeconds(0.5f);
-
-            Instantiate(StaticData.AttackHand[i], transform.position, transform.rotation);
+            go.SetActive(false); // Toggle visibility
         }
     }
 }

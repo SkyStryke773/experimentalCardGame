@@ -25,12 +25,28 @@ public class TurnSystem : MonoBehaviour
     public GameObject AttackPos3;
     public GameObject AttackPos4;
     public GameObject AttackPos5;
-    
-    
+
+    GameObject card1;
+    GameObject card2;
+    GameObject card3;
+    GameObject card4;
+    GameObject card5;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
-       
+        GameObject[] rootGameObjects = SceneManager.GetSceneByName("AttackPhase").GetRootGameObjects();
+
+        foreach (GameObject go in rootGameObjects)
+        {
+            go.SetActive(false); // Toggle visibility
+        }
+
+
+
+
         isYourTurn = true;
         yourTurn = 1;
         isOpponentTurn = 0;
@@ -105,24 +121,51 @@ public class TurnSystem : MonoBehaviour
 
     public void GoToAttackScene()
     {
+        if (AttackPos1.transform.childCount == 1)
+        {
+            card1 = AttackPos1.transform.GetChild(0).gameObject;
+            StaticData.AttackHand.Add(card1);
+            
+        }
+        if (AttackPos2.transform.childCount == 1)
+        {
+            card2 = AttackPos2.transform.GetChild(0).gameObject;
+            StaticData.AttackHand.Add(card2);
+        }
+        if (AttackPos3.transform.childCount == 1)
+        {
+            card3 = AttackPos3.transform.GetChild(0).gameObject;
+            StaticData.AttackHand.Add(card3);
+        }
+        if (AttackPos4.transform.childCount == 1)
+        {
+            card4 = AttackPos4.transform.GetChild(0).gameObject;
+            StaticData.AttackHand.Add(card4);
+        }
+        if (AttackPos5.transform.childCount == 1)
+        {
+            card5 = AttackPos5.transform.GetChild(0).gameObject;
+            StaticData.AttackHand.Add(card5);
+        }
 
-        GameObject card1 = AttackPos1.transform.GetChild(0).gameObject;
-        GameObject card2 = AttackPos2.transform.GetChild(0).gameObject;
-        GameObject card3 = AttackPos3.transform.GetChild(0).gameObject;
-        GameObject card4 = AttackPos4.transform.GetChild(0).gameObject;
-        GameObject card5 = AttackPos5.transform.GetChild(0).gameObject;
 
-        StaticData.AttackHand.Add(card1);
-        StaticData.AttackHand.Add(card2);   
-        StaticData.AttackHand.Add(card3);
-        StaticData.AttackHand.Add(card4);
-        StaticData.AttackHand.Add(card5);
-       
+
+
+
 
 
         //Debug.Log(StaticData.attackHand[0] + StaticData.attackHand[1] + StaticData.attackHand[2] + StaticData.attackHand[3] + StaticData.attackHand[4]);
 
-        SceneManager.LoadScene("AttackPhase");
-    }
+        // SceneManager.LoadScene("AttackPhase");
 
+
+        // Toggle the active state of each GameObject
+        GameObject[] rootGameObjects = SceneManager.GetSceneByName("AttackPhase").GetRootGameObjects();
+
+        foreach (GameObject go in rootGameObjects)
+        {
+            go.SetActive(true); // Toggle visibility
+        }
+    }
+   
 }
