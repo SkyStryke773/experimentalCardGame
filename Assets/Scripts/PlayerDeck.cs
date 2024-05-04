@@ -27,7 +27,9 @@ public class PlayerDeck : MonoBehaviour
 
         for(int i = 0; i < 40; i++)
         {
-            CardPicked = Random.Range(0, 2);
+            //defines range of ids to search from, change to match total cards created
+            CardPicked = Random.Range(0, 5);
+
             deck[i] = CardDatabase.cardList[CardPicked];
         }
         StartCoroutine(StartGame());
@@ -70,7 +72,7 @@ public class PlayerDeck : MonoBehaviour
     {
         for(int i = 0; i <= 4; i++)
         {
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(0.5f);
           
             Instantiate(CardToHand, transform.position, transform.rotation);
         }
