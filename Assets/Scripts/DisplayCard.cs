@@ -13,6 +13,7 @@ public class DisplayCard : MonoBehaviour
     public string cardDescription;
     public int cardCost;
     public int cardPower;
+    public int cardHealth;
     public int id;
     public Sprite cardImage;
 
@@ -20,6 +21,7 @@ public class DisplayCard : MonoBehaviour
     public Text descriptionText;
     public Text costText;
     public Text powerText;
+    public Text healthText;
     public Image artImage;
 
     public bool cardBack;
@@ -40,11 +42,13 @@ public class DisplayCard : MonoBehaviour
 
     void Update()
     {
-        
+        //displays values of cards
+
         cardName = displayCard[0].cardName;
         cardDescription = displayCard[0].cardDescription;
         cardCost = displayCard[0].cardCost;
         cardPower = displayCard[0].cardPower;
+        cardHealth = displayCard[0]. cardHealth;
         id = displayCard[0].id;
         cardImage = displayCard[0].cardImage;
 
@@ -54,8 +58,11 @@ public class DisplayCard : MonoBehaviour
         descriptionText.text = "" + cardDescription;
         costText.text = "" + cardCost;
         powerText.text = "" + cardPower;
+        healthText.text = "" + cardHealth;
         artImage.sprite = cardImage;
+
         hand = GameObject.Find("Hand");
+
         if(this.transform.parent == hand.transform.parent)
         {
             cardBack = false;

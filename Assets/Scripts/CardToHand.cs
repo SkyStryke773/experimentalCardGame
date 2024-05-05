@@ -7,10 +7,13 @@ public class CardToHand : MonoBehaviour
     public GameObject hand;
     public GameObject handCard;
 
-
+  
 
     void Start()
     {
+        
+
+        
         hand = GameObject.Find("Hand");
         handCard.transform.SetParent(hand.transform);
         handCard.transform.localScale = Vector3.one;
